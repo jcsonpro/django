@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pyburger의 햄버거 목록입니다</title>
+</head>
+<body>
+    <h1>pyburger의 햄버거 목록입니다</h1>
+    {% for b in burgers %}
+        {{ b.name }}
+        (가격: {{ b.price }})
+        (칼로리: {{ b.calories }})
+    <hr>
+    {% endfor %}
+</body>
+</html>

@@ -21,7 +21,7 @@ TEMPLATES_DIR = BASE_DIR / "templates"
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1cc-khrup54q#z!ycbs5e+^*g9^*=ojuqh7!=5upc(y29_fbwk'
+SECRET_KEY = 'django-insecure-!u@(clhars&r0+c7o_ybcclnw6b@w+nk9m-02vwo*p#7$+z1(d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'burgers',
+    'blog',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
