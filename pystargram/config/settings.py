@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
+# 커스텀 유저 모델을 사용할 경우 어떤 모델을 User모델로 사용하는지 정의해야 한다
+# 사용법: {App이름}.{Model이름}
 AUTH_USER_MODEL = "users.User"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
