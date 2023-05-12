@@ -21,3 +21,4 @@ class User(AbstractUser):
     # AbstractBaseUser 클래스를 상속받으면 자동으로 모델에 추가되는 필드들
     # password =
     # last_login =
+
