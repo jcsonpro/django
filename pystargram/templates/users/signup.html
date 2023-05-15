@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>signup</title>
-</head>
-<body>
-<h1>sign up</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="signup">
 <form method="POST" enctype="multipart/form-data">
+    <h1>Pystargram</h1>
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">회원가입</button>
+    <button type="submit" class="btn btn-signup">회원가입</button>
+    <a href="/users/login/">로그인 페이지로 이동</a>
 </form>
-</body>
-</html>
+</div>
+{% endblock %}
