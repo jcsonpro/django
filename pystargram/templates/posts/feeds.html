@@ -12,7 +12,28 @@
                     {% endif %}
                     <span>{{ post.user.username }}</span>
                 </header>
+
+                <div class="post-images splide">
+                    <!-- https://splidejs.com -->
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            {% for image in post.postimage_set.all %}
+                                {% if image.photo %}
+                                    <li class="splide__slide">
+                                        <img src="{{ image.photo.url }}">
+                                    </li>
+                                {% endif %}
+                        {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             </article>
         {% endfor %}
     </div>
+    <script>
+        const elms = document.getElementsByClassName('splide')
+        for (let i = 0; i < elms.length; i++) {
+            new Splide(elms[i]).mount();
+        }
+    </script>
 {% endblock %}
