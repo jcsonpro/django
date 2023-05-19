@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect, HttpResponseForbidden
+from django.http import HttpResponseRedirect, HttpResponseForbidden, HttpResponseBadRequest
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.decorators.http import require_POST
@@ -18,8 +18,7 @@ def feeds(request):
         "posts": posts,
         "comment_form": comment_form,
     }
-    url = reverse("posts:feeds")
-    return render(request, url, context)
+    return render(request, "posts/feeds.html", context)
 
 
 @require_POST
@@ -48,6 +47,8 @@ def comment_delete(request, comment_id):
             return HttpResponseRedirect(url)
         else:
             return HttpResponseForbidden("이 댓글을 삭제할 권한이 없습니다")
+    else:
+        return HttpResponseBadRequest()
 
 
 def post_add(request):
@@ -72,5 +73,4 @@ def post_add(request):
         form = PostForm()
 
     context = {"form": form}
-    url = reverse("posts:post_add")
-    return render(request, url, context)
+    return render(request, "posts/post_add.html", context)

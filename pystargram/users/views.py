@@ -32,14 +32,11 @@ def login_view(request):
                 form.add_error(None, "입력한 자격증명에 해당하는 사용자가 없습니다")
 
         context = {"form": form}
-        url = reverse("users:login")
-        return render(request, url, context)
+        return render(request, "users/login.html", context)
     else:
         form = LoginForm()
         context = {"form": form}
-        url = reverse("users:login")
-        print(url)
-        return render(request, url, context)
+        return render(request, "users/login.html", context)
 
 
 def logout_view(request):
@@ -51,13 +48,21 @@ def signup(request):
     if request.method == "POST":
         form = SignupForm(data=request.POST, files=request.FILES)
         if form.is_valid():
+            # username = form.cleaned_data["username"]
+            # password1 = form.cleaned_data["pasword1"]
+            # profile_image = form.cleaned_data["profile_image"]
+            # short_description = form.cleaned_data["short_description"]
+            # user = User.objects.create_user(
+            #     username=username,
+            #     password=password1,
+            #     profile_image=profile_image,
+            #     short_description=short_description,
+            # )
             user = form.save()
             login(request, user)
             return redirect("posts:feeds")
-
     else:  # GET
         form = SignupForm()
 
     context = {"form": form}
-    url = reverse("users:signup")
-    return render(request, url, context)
+    return render(request, "users/signup.html", context)
